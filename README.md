@@ -9,16 +9,17 @@ See: https://techspec.casperlabs.io/en/latest/dapp-dev-guide/index.html
 This assumes you have Vagrant and VirtualBox and that you're on a Mac. Run this to get them:
 
 ```
-$ brew install vagrant
+$ brew cask install vagrant
 $ brew cask install virtualbox
 ```
 
-Now
+Now provision the VM w/ Vagrant
 ```
 vagrant up --provider virtualbox
 ```
 
-Once the system has provisioned.
+Once the system has provisioned, SSH into it. Your `my-project` directory is
+right there in your home directory.
 
 ```
 vagrant ssh
