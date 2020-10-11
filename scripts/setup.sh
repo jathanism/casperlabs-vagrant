@@ -8,6 +8,11 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 echo "Enabling Rust..."
 source $HOME/.cargo/env
 
+# Install Python client and reload .profile after
+echo "Installing Python client..."
+pip3 install casperlabs_client
+source ~/.profile
+
 # Install Casperlabs and bootstrap it
 echo "Setting up Casperlabs..."
 cargo install cargo-casperlabs
