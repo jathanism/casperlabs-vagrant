@@ -71,6 +71,8 @@ Vagrant.configure("2") do |config|
     apt-get install -y build-essential cmake protobuf-compiler python3 python3-pip python3-dev figlet
   SHELL
 
+  # Run the setup script as the vagrant user so casperlabs stuff is available
+  # to the user upon login
   config.vm.provision "shell", path: "scripts/setup.sh", privileged: false
 
 end
