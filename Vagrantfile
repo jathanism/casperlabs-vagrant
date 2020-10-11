@@ -64,11 +64,14 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   # >> Please note that these commands are ran as ROOT
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   DEBIAN_FRONTEND=noninteractive sudo apt update
-  # SHELL
+  config.vm.provision "shell", inline: <<-SHELL
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
+    apt-get upgrade -y
+    apt-get install -y build-essential cmake protobuf-compiler python3 python3-pip python3-dev figlet
+  SHELL
 
   # config.vm.provision "shell", path: "scripts/installAmiCreator.sh"
-  config.vm.provision "shell", path: "scripts/setup.sh"
+  config.vm.provision "shell", path: "scripts/setup.sh", privileged: false
 
 end
